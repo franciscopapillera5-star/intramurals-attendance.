@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intramurals Photo Attendance System</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand-icon">🏆</div>
+    <div>
+      <h1>Intramurals Attendance</h1>
+      <p>Photo-Based Student Attendance System</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="card" id="loginCard">
+      <div class="section-heading">
+        <span class="eyebrow">STUDENT ATTENDANCE PORTAL</span>
+        <h2>Representative Login</h2>
+        <p>Sign in to manage your section's attendance.</p>
+      </div>
+
+      <form id="loginForm">
+        <label for="section">Select Section</label>
+        <select id="section" required>
+          <option value="1A6-IT">1A6-IT</option>
+          <option value="1A7-IT">1A7-IT</option>
+          <option value="1A8-IT">1A8-IT</option>
+        </select>
+
+        <label for="representative">Representative Name</label>
+        <input id="representative" type="text"
+          placeholder="Enter representative name" required>
+
+        <button type="submit">Login to Dashboard</button>
+        <p class="notice" id="loginMessage" role="status"></p>
+      </form>
+
+      <p class="demo-note">
+        Demonstration only. This login does not verify identity.
+      </p>
+    </section>
+
+    <section class="card" id="attendance" hidden>
+      <div class="dashboard-top">
+        <div>
+          <span class="eyebrow">REPRESENTATIVE DASHBOARD</span>
+          <h2 id="sectionTitle">Student Attendance</h2>
+          <p id="representativeInfo"></p>
+        </div>
+        <span class="session-tag">Intramurals</span>
+      </div>
+
+      <div class="stats">
+        <div class="stat-box">
+          <span>Total Students</span>
+          <strong id="totalCount">0</strong>
+        </div>
+        <div class="stat-box present-box">
+          <span>Present</span>
+          <strong id="presentCount">0</strong>
+        </div>
+        <div class="stat-box pending-box">
+          <span>Not Recorded</span>
+          <strong id="pendingCount">0</strong>
+        </div>
+      </div>
+
+      <label for="searchStudent">Search Student</label>
+      <input id="searchStudent" type="search"
+        placeholder="Search by student name">
+
+      <div id="studentList"></div>
+
+      <button type="button" class="secondary" id="logoutBtn">
+        Logout
+      </button>
+    </section>
+
+    <section class="card" id="photoCard" hidden>
+      <span class="eyebrow">PHOTO EVIDENCE</span>
+      <h2>Record Attendance</h2>
+      <p id="selectedStudent"></p>
+
+      <label for="photoInput">Take or Upload Student Photo</label>
+      <input id="photoInput" type="file"
+        accept="image/*" capture="environment">
+
+      <img id="photoPreview" alt="Selected photo preview" hidden>
+
+      <p class="help-text">
+        Check that you selected the correct student and photo.
+      </p>
+      <p class="notice" id="photoMessage" role="status"></p>
+
+      <button type="button" id="submitPhotoBtn">
+        Confirm and Submit
+      </button>
+      <button type="button" class="secondary" id="cancelPhotoBtn">
+        Cancel
+      </button>
+    </section>
+  </main>
+
+  <footer>
+    <p>Intramurals Photo Attendance System</p>
+    <small>School demonstration project</small>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
